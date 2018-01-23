@@ -1,0 +1,10 @@
+## Ajouter une question repose avec les tags 1 et 2
+## Pas la peine de rentrer les textes pour les tags.Par contre, il faut mettre les textes à quelque chose quand même
+curl -d '{"question":"Qui est le roi","reponse":"Louis 16","tags":[{"id":1,"value":""},{"id":2,"value":""}]}' -u admin:admin -H "Content-Type: application/json" -X PUT localhost:8080/FaqExample/rest/faq/put
+
+## Erreurs JSON
+curl -d '{"question":"Qui est le roi","reponse":"Louis 16","tags":[{"id":1,"value":""},{"id":2,"xx":""}]}' -u admin:admin -H "Content-Type: application/json" -X PUT localhost:8080/FaqExample/rest/faq/put
+curl -d '{"question":"Qui est le roi","r":"Louis 16","tags":[{"id":1,"value":""},{"id":2,"value":""}]}' -u admin:admin -H "Content-Type: application/json" -X PUT localhost:8080/FaqExample/rest/faq/put
+
+## Erreur requete
+curl -d '{"question":"Qui est le roi","reponse":"Louis 16","tags":[{"id":1,"value":""},{"id":2,"xx":""}]}' -u admin:admin -H "Content-Type: application/json" localhost:8080/FaqExample/rest/faq/put
